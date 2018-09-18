@@ -47,7 +47,8 @@ void SqlTableModel::insertRow(const QList<QPair<QVariant,QVariant>> &list){
 void SqlTableModel::updateRow(int key,const QList<QPair<QVariant,QVariant>>  &list){
 
     QSqlRecord newrecord = QSqlTableModel::record(key);
-    QSqlRecord oldrecord = QSqlRecord::QSqlRecord(newrecord);
+    QSqlRecord oldrecord = QSqlRecord(newrecord);
+
     for(int i = 0 ; i<list.size(); i++ ){
 
         newrecord.setValue(list.at(i).first.toString(),list.at(i).second.toString());

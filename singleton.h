@@ -27,7 +27,7 @@ private:
 template <class T>
 T* Singleton<T>::instance(CreateInstanceFunction create)
 {
-  Singleton::create.store(create);
+  Singleton::create.store((void*)create);
   qCallOnce(init, flag);
   return (T*)tptr.load();
 }
